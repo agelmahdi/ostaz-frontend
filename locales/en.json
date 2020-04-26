@@ -1,0 +1,106 @@
+ {
+   "links": {
+     "home": "Home",
+     "about": "About",
+     "screens": "Screens",
+     "features": "Features",
+     "team": "Team",
+     "teachers": "Teachers",
+     "contact": "Contact Us",
+     "teacherslogin": "Teacher Login",
+     "english": "English",
+     "arabic": "العربيه"
+
+   },
+   "intro": {
+     "fast": "OSTAZ provide easy & fast communication with",
+     "amazing": "AMAZING TEACHERS",
+     "student": "Welcome Student",
+     "login": "Login",
+     "email": "Email",
+     "emailaddess": "Enter Email Address",
+     "password": "Password",
+     "enterpassword": "Enter Password",
+     "remeber": "Remember me",
+     "enter": "Sign in",
+     "about": "About Ostaz",
+     "aboutdis": "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic type setting,\n\nAll the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, naking this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable.",
+     "news": "Subscribe Our Newsletter",
+     "subscribe": "Subscribe",
+     "right": "Copyright 2020 Ostaz Developed by",
+     "ostazteam": "Ostaz Team"
+
+
+   },
+   "sfeatures": {
+   "title": "Special Features",
+   "discription": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley.",
+   "feature1": "Video Streaming",
+   "feature1dis": "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into\n\nAll the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable.",
+   "feature2": "class room",
+   "feature2dis": "class room dis",
+   "feature3": "feature 3",
+   "feature3dis": "feature 3 discription",
+   "feature4": "feature 4",
+   "feature4dis": "feature 4 discription",
+     "feature5": "feature 5 ",
+     "feature5dis": "feature 5 dicription",
+     "feature6": "feature 4 ",
+     "feature6dis": "feature 6 discription"
+ },
+   "features": {
+     "title": "Appworld Great Feature",
+     "discription": " Check out the appino’s new amazing features.",
+     "feature1": "Video Streaming",
+     "feature1dis": " to generate Lorem Ipsum which looks reasonable.",
+     "feature2": "class room",
+     "feature2dis": "class room dis",
+     "feature3": "feature 3",
+     "feature3dis": "feature 3 discription",
+     "feature4": "feature 4",
+     "feature4dis": "feature 4 discription",
+     "feature5": "feature 5 ",
+     "feature5dis": "feature 5 dicription",
+     "feature6": "feature 4 ",
+     "feature6dis": "feature 6 discription"
+   },
+   "contact": {
+     "contact": "Get in Touch",
+     "name": "Name",
+     "email": "email",
+     "phone": "phone",
+     "message": "message",
+     "contactus": "Contact Us",
+     "address": "Contact Us",
+     "addressdis": "1234 North Avenue Luke Lane, South Bend,IN 360001",
+     "contactphone": "Phone",
+     "contactnumber": "+0123 456 789",
+     "contactmail": "Mail",
+     "contactmaildis": "support@appino.com",
+     "send": "send message"
+   },
+   "team": {
+     "title": "Meet the Team",
+     "discription": "Meet the faces behind our company. Our team offers the most up-to-date, sustainable custom solutions to the problem. They work so hard to provide best to their customers.",
+     "member1":"Ahmed El-Mahdi",
+     "member1title" : "Senior Software Lead/Product Manager",
+     "member2":"Ahmed Tawfek",
+     "member2title" : "Senior Software Engineer/Back-End Developer",
+     "member3":"Khaled Moustafa",
+     "member3title" : "Marketing Manager",
+     "member4":"Ahmed Maher",
+     "member4title" : "Business Intelligent Specialist"
+   },
+   "fqa": {
+     "title": "Frequently Asked Questions",
+     "discription": "If you got any query? Here you go! Don't hesitate to ask any Question! We are happy to help with your questions. Here you go! Don't hesitate to ask any Question! We are happy to help with your questions.",
+     "fqa1": "Q: What is Lorem Ipsum?",
+     "fqa1dis": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+     "fqa2": "Q: What is Lorem Ipsum?",
+     "fqa2dis": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+     "fqa3": "Q: What is Lorem Ipsum?",
+     "fqa3dis": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+     "fqa4": "Q: What is Lorem Ipsum?",
+     "fqa4dis": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+   }
+}
