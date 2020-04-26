@@ -29,8 +29,39 @@ export default {
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: [
-  ],
+  router: {
+    middleware: 'i18n'
+  },
+  plugins: [],
+  i18n: {
+
+    strategy: 'prefix_except_default',
+    locales: [
+      {
+        code: 'en',
+        file: 'en.json'
+      },
+      {
+        code: 'ar',
+        file: 'ar.json'
+      }
+    ],
+    // locales: ['en', 'ar'],
+    defaultLocale: 'ar',
+    // detectBrowserLanguage: {
+    //   useCookie: true,
+    //   cookieKey: 'i18n_redirected'
+    // },
+    lazy: true,
+    langDir: 'locales/',
+    vueI18n: {
+      fallbackLocale: 'ar',
+      messages: {
+        en: {},
+        ar: {}
+      }
+    }
+  },
   /*
   ** Nuxt.js dev-modules
   */
@@ -47,7 +78,8 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt-community/dotenv-module
-    '@nuxtjs/dotenv'
+    '@nuxtjs/dotenv',
+    'nuxt-i18n'
   ],
   /*
   ** Axios module configuration
