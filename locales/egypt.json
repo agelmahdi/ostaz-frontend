@@ -1,0 +1,76 @@
+ [{"title": "alexandria",
+   "title_ar":"الاسكندريه","regions":
+   [
+     {"title": "Port Alexandria Police Dept.","title_ar": "اداره شرطه ميناء الأسكندريه"},
+     {"title": "Dekhela","title_ar": "الدخيلة"},
+     {"title": "Amreya 1","title_ar": " أول العامرية"},
+     {"title": "Amreya 2","title_ar": "ثان العامرية"},
+     {"title": "Ataren","title_ar": "العطارين"},
+     {"title": "Gomrok","title_ar": " الجمرك"},
+     {"title": "Labban","title_ar": "اللبان"},
+     {"title": "Mansheya","title_ar": "المنشية"},
+     {"title": "Montaza 1","title_ar": "أول المنتزة"},
+     {"title": "Montaza 2","title_ar": "ثان المنتزة"},
+     {"title": "El Raml 1","title_ar": "أول الرمل"},
+     {"title": "El Raml 2","title_ar": "ثان الرمل"},
+     {"title": "North Coast","title_ar": "الساحل الشمالى"},
+     {"title": "Bab Sharqi","title_ar": "قسم باب شرقى"},
+     {"title": "Borg El Arab","title_ar": "برج العرب"},
+     {"title": "Karmouz","title_ar": "كرموز"},
+     {"title": "New Borg El Arab","title_ar": "برج العرب الجديده"},
+     {"title": "Port al-Basal","title_ar": "مينا البصل"},
+     {"title": "Moharam Bek","title_ar": "محرم بك"},
+     {"title": "Sidi Gaber","title_ar": "سيدى جابر"}
+   ]},
+   {"title": "Beheira",
+     "title_ar":"البحيرة","regions":
+   [
+     {"title": "Abu El Matamir","title_ar": "ابو المطامير"},
+     {"title": "Abu Hummus","title_ar": "ابوحمص"},
+     {"title": "El Delengat","title_ar": "الدلنجات"},
+     {"title": "Mahmoudiyah","title_ar": "المحمودية"},
+     {"title": "Rahmaniya","title_ar": "الرحمانية"},
+     {"title": "Badr","title_ar": "بدر"},
+     {"title": "Damanhour","title_ar": "دمنهور"},
+     {"title": "West Nubariyah","title_ar": "غرب النوبارية"},
+     {"title": "Hosh Essa","title_ar": "حوش عيسى"},
+     {"title": "Edku","title_ar": "إدكو"},
+     {"title": "itay El Barud","title_ar": " إيتاى البارود"},
+     {"title": "Kafr El Dawwar","title_ar": " كفر الدوار"},
+     {"title": "Kom Hamada","title_ar": " كوم حمادة"},
+     {"title": "Rosetta","title_ar": "رشيد"},
+     {"title": "Shubrakhit","title_ar": "شبراخيت"},
+     {"title": "Natrn Valley","title_ar": "وادى النطرون"}
+
+   ]},
+   {"title": "Matrouh",
+     "title_ar":"مطروح","regions":
+   [
+     {"title": "El Dabaa ","title_ar": "الضبعة"},
+     {"title": "El Alamein","title_ar": "العلمين"},
+     {"title": "El Hamam","title_ar": "الحمام"},
+     {"title": "El Negaila","title_ar": "النجيله"},
+     {"title": "North Coast","title_ar": "الساحل الشمالى"},
+     {"title": "Sallum","title_ar": "السلوم"},
+     {"title": "Mersa Matruh","title_ar": "مرسى مطروح"},
+     {"title": "Sidi Barrani","title_ar": "سيدى برانى"},
+     {"title": "Siwa Oasis","title_ar": "سيوة"}
+
+   ]}
+ ,
+   {"title": "Cairo",
+     "title_ar":"القاهرة","regions":
+   [
+     {"title": "15 May City","title_ar": "15 مايو"},
+     {"title": "Abdeen","title_ar": "عابدين"},
+     {"title": "El Darb El Ahmar","title_ar": "الدرب الأحمر"},
+     {"title": "Ain Shams","title_ar": "عين شمس"},
+     {"title": "Amreya","title_ar": "الاميريه"},
+     {"title": "Sallum","title_ar": "السلوم"},
+     {"title": "Mersa Matruh","title_ar": "مرسى مطروح"},
+     {"title": "Sidi Barrani","title_ar": "سيدى برانى"},
+     {"title": "Siwa Oasis","title_ar": "سيوة"}
+
+   ]}
+
+ ]

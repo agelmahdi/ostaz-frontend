@@ -1,13 +1,13 @@
 <template>
-  <div class="Content">
-  </div>
+  <v-app>
+  </v-app>
 </template>
-
 <script>
 export default {
-  head () {
+  layout: 'login',
+  data () {
     return {
-      title: this.$t('about.title')
+      //
     }
   }
 }

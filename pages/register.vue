@@ -1,13 +1,12 @@
 <template>
-  <div class="Content">
-  </div>
+  <v-app />
 </template>
-
 <script>
 export default {
-  head () {
+  layout: 'register',
+  data () {
     return {
-      title: this.$t('about.title')
+      //
     }
   }
 }
