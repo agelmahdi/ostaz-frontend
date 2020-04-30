@@ -19,6 +19,13 @@ export const getters = {
   },
   specialitySelected (state) {
     return state.selectedSpeciality
+  },
+  isAuthenticated (state) {
+    return state.auth.loggedIn
+  },
+
+  loggedInUser (state) {
+    return state.auth.user
   }
 }
 

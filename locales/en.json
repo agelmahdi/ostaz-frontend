@@ -1,4 +1,7 @@
  {
+   "home": {
+     "title": "Ostaz"
+ },
    "links": {
      "home": "Home",
      "about": "About",
@@ -132,11 +135,16 @@
      "emailaddess": "Enter Email Address",
      "enterpassword": "Enter Your Password",
      "enterphone": "Enter Your Mobile Number",
-     "entermp": "Enter Your Mobile Number or Mobile Number",
+     "entermp": "Enter Email or Mobile Number",
      "entername": "Enter full name",
      "login": "Login",
      "notrig": "Don’t have an account?",
      "enterage": "Enter your age"
 
+   },
+   "quiz": {
+     "title": "Quiz Title",
+     "entertitle": "Enter quiz title",
+     "save": "Save Quiz"
    }
 }
