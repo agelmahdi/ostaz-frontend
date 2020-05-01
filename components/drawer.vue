@@ -116,7 +116,7 @@
             <v-spacer />
 
             <v-btn text @click="logout">
-              {{ $t('ostaz.logout') }}
+              {{ $t('btn.logout') }}
             </v-btn>
             <v-btn color="" text>
               <nuxt-link :to="localePath('/profile')">

@@ -1,117 +1,95 @@
 <template>
   <v-app id="inspire">
     <v-progress-linear v-if="loading" indeterminate color="green" />
-    <ValidationObserver ref="observer">
-      <v-form lazy-validation>
-        <v-container>
-          <v-row>
-            <v-col cols="12" sm="12">
-              <ValidationProvider
-                v-slot="{ errors }"
-                name="Question Title"
-                rules="required"
-              >
-                <v-text-field
-                  v-model="title"
-                  :error-messages="errors"
-                  label="Question Title"
-                  required
-                />
-              </ValidationProvider>
-            </v-col>
-            <v-col cols="12" sm="3">
-              <ValidationProvider
-                v-slot="{ errors }"
-                name="Answer One"
-                rules="required"
-              >
-                <v-text-field
-                  v-model="answer1"
-                  :error-messages="errors"
-                  label="Answer One"
-                  required
-                />
-              </ValidationProvider>
-              <v-checkbox
-                v-model="checked1"
-                value="1"
-                label="This is Correct Answer"
-                type="checkbox"
-              />
-            </v-col>
-            <v-col cols="12" sm="3">
-              <ValidationProvider
-                v-slot="{ errors }"
-                name="Answer Two"
-                rules="required"
-              >
-                <v-text-field
-                  v-model="answer2"
-                  :error-messages="errors"
-                  label="Answer Two"
-                  required
-                />
-              </ValidationProvider>
-              <v-checkbox
-                v-model="checked2"
-                value="1"
-                label="This is Correct Answer"
-                type="checkbox"
-              />
-            </v-col>
-            <v-col cols="12" sm="3">
-              <ValidationProvider
-                v-slot="{ errors }"
-                name="Answer Three"
-                rules="required"
-              >
-                <v-text-field
-                  v-model="answer3"
-                  :error-messages="errors"
-                  label="Answer Three"
-                  required
-                />
-              </ValidationProvider>
-              <v-checkbox
-                v-model="checked3"
-                value="1"
-                label="This is Correct Answer"
-                type="checkbox"
-              />
-            </v-col>
-            <v-col cols="12" sm="3" md="3">
-              <ValidationProvider
-                v-slot="{ errors }"
-                name="Answer Four"
-                rules="required"
-              >
-                <v-text-field
-                  v-model="answer4"
-                  :error-messages="errors"
-                  label="Answer Four"
-                  required
-                />
-              </ValidationProvider>
-              <v-checkbox
-                v-model="checked4"
-                value="1"
-                label="This is Correct Answer"
-                type="checkbox"
-              />
-            </v-col>
-          </v-row>
-          <div class="osahan-area text-center mt-3">
-            <v-btn
-              color="success"
-              class="osahan-area text-center mt-3"
-              @click.prevent="addQuestion"
-            >
-              Save Question
-            </v-btn>
-          </div>
-        </v-container>
-      </v-form>
-    </ValidationObserver>
+
+    <v-form lazy-validation>
+      <v-container>
+        <v-row>
+          <v-col cols="12" sm="12">
+            <v-text-field
+              v-model="title"
+              :error-messages="errors"
+              :label="$t('question.title')"
+              outlined
+              required
+            />
+          </v-col>
+          <v-col cols="12" sm="3">
+            <v-text-field
+              v-model="answer1"
+              :error-messages="errors"
+              :label="$t('question.answer1')"
+              outlined
+              required
+            />
+
+            <v-checkbox
+              v-model="checked1"
+              value="1"
+              :label="$t('question.correct')"
+              type="checkbox"
+            />
+          </v-col>
+          <v-col cols="12" sm="3">
+            <v-text-field
+              v-model="answer2"
+              :error-messages="errors"
+              :label="$t('question.answer2')"
+              outlined
+              required
+            />
+
+            <v-checkbox
+              v-model="checked2"
+              value="1"
+              :label="$t('question.correct')"
+              type="checkbox"
+            />
+          </v-col>
+          <v-col cols="12" sm="3">
+            <v-text-field
+              v-model="answer3"
+              :error-messages="errors"
+              :label="$t('question.answer3')"
+              outlined
+              required
+            />
+
+            <v-checkbox
+              v-model="checked3"
+              value="1"
+              :label="$t('question.correct')"
+              type="checkbox"
+            />
+          </v-col>
+          <v-col cols="12" sm="3" md="3">
+            <v-text-field
+              v-model="answer4"
+              :error-messages="errors"
+              :label="$t('question.answer4')"
+              outlined
+              required
+            />
+
+            <v-checkbox
+              v-model="checked4"
+              value="1"
+              :label="$t('question.correct')"
+              type="checkbox"
+            />
+          </v-col>
+        </v-row>
+        <div class="osahan-area text-center mt-3">
+          <v-btn
+            color="success"
+            class="osahan-area text-center mt-3"
+            @click.prevent="addQuestion"
+          >
+            {{ $t('question.save') }}
+          </v-btn>
+        </div>
+      </v-container>
+    </v-form>
     <v-data-table
       :headers="headers"
       :items="data"
@@ -144,8 +122,7 @@
         <v-toolbar flat color="white">
           <v-text-field
             v-model="search"
-            append-icon="search"
-            label="Search"
+            :label="$t('table.search')"
             single-line
             hide-details
           />
@@ -162,7 +139,7 @@
                   <v-col cols="12" sm="12">
                     <v-text-field
                       v-model="editedItem.title"
-                      label="Question Title"
+                      :label="$t('question.title')"
                     />
                   </v-col>
 
@@ -188,10 +165,10 @@
             <v-card-actions>
               <v-spacer />
               <v-btn color="blue darken-1" text @click="close">
-                Cancel
+                {{ $t('btn.cancel') }}
               </v-btn>
               <v-btn color="blue darken-1" text @click.prevent="save">
-                Save
+                {{ $t('btn.save') }}
               </v-btn>
             </v-card-actions>
           </v-card>
@@ -207,15 +184,13 @@
       </template>
 
       <template v-slot:no-data>
-        <v-btn color="primary" @click="initialize">
-          Reset
-        </v-btn>
+        <v-label>{{ $t('table.nodata') }} </v-label>
       </template>
     </v-data-table>
   </v-app>
 </template>
 <script>
-import AuthService from '../../../../AuthService'
+import AuthService from '../../../../../AuthService'
 export default {
   components: {},
   props: ['quiz'],
@@ -239,14 +214,9 @@ export default {
     checked3: '',
     checked4: '',
     sucess: [],
-
-    headers: [
-      { text: 'title', value: 'title' },
-      { text: 'answers', value: 'answers' },
-      { text: 'Actions', value: 'actions', sortable: false }
-    ],
     data: [],
     meta: [],
+    errors: [],
 
     editedIndex: -1,
     editedItem: {
@@ -259,8 +229,14 @@ export default {
       answers: []
     }
   }),
-
   computed: {
+    headers () {
+      return [
+        { text: this.$t('table.title'), value: 'title' },
+        { text: this.$t('table.answers'), value: 'answers' },
+        { text: this.$t('table.actions'), value: 'actions', sortable: false }
+      ]
+    },
     formTitle () {
       return this.editedIndex === -1 ? 'New Item' : 'Edit Item'
     },
@@ -291,6 +267,9 @@ export default {
       deep: true
     }
   },
+  mounted () {
+    console.log(this.$route.params.slug)
+  },
 
   created () {
     this.allQuestions()
@@ -312,9 +291,10 @@ export default {
           P: '100',
           page: this.page
         }
+        const token = this.$auth.getToken('local')
         // this.$router.push({ path: '/'+this.quiz+'/questions', query: { page: credentials.page }});
 
-        const response = await AuthService.allQuestions(credentials, this.quiz)
+        const response = await AuthService.allQuestions(credentials, this.$route.params.slug, token)
         this.msg = response.msg
         this.data = response.data
         this.meta = response.meta
@@ -335,45 +315,30 @@ export default {
       // };
       // console.log(credentialss);
 
-      this.$refs.observer
-        .validate()
-        .then(() => {
-          // success
-          this.valid = true
-          this.loading = true
-        })
-        .catch(() => {
-          // Failed
-          this.valid = false
-          this.loading = false
-        })
+      try {
+        const answers = [
+          { title: this.answer1, type: this.checked1 ? 1 : 0 },
+          { title: this.answer2, type: this.checked2 ? 1 : 0 },
+          { title: this.answer3, type: this.checked3 ? 1 : 0 },
+          { title: this.answer4, type: this.checked4 ? 1 : 0 }
+        ]
 
-      if (this.valid) {
-        try {
-          const answers = [
-            { title: this.answer1, type: this.checked1 ? 1 : 0 },
-            { title: this.answer2, type: this.checked2 ? 1 : 0 },
-            { title: this.answer3, type: this.checked3 ? 1 : 0 },
-            { title: this.answer4, type: this.checked4 ? 1 : 0 }
-          ]
-
-          const credentials = {
-            title: this.title,
-            answers: JSON.stringify(answers)
-          }
-          console.log(credentials)
-
-          const response = await AuthService.addQuestion(credentials, this.quiz)
-          this.msg = response.msg
-          this.data = response.data
-          console.log(response.data)
-          // this.sucess.push('Question successfully saved');
-          this.$router.go()
-        } catch (error) {
-          this.msg = error.response.data.msg
-          console.log(error.response.data.msg)
-          this.loading = false
+        const credentials = {
+          title: this.title,
+          answers: JSON.stringify(answers)
         }
+        console.log(credentials)
+
+        const response = await AuthService.addQuestion(credentials, this.$route.params.slug, this.$auth.getToken('local'))
+        this.msg = response.msg
+        this.data = response.data
+        console.log(response.data)
+        // this.sucess.push('Question successfully saved');
+        this.$router.go()
+      } catch (error) {
+        this.msg = error.response.data.msg
+        console.log(error.response.data.msg)
+        this.loading = false
       }
     },
     async editQuestion () {
@@ -406,7 +371,7 @@ export default {
     },
     async deleteQuestion (slug) {
       try {
-        const response = await AuthService.deleteQuestion(slug)
+        const response = await AuthService.deleteQuestion(slug, this.$auth.getToken('local'))
         this.msg = response.msg
         this.data = response.data
         console.log(response.data)

@@ -43,9 +43,7 @@ export default {
         console.error(error)
       })
   },
-  allQuestions (credentials, slug) {
-    console.log('slug:' + slug)
-
+  allQuestions (credentials, slug, token) {
     const base =
       'api/streamer/' +
       `${slug}` +
@@ -53,15 +51,25 @@ export default {
       '?page=' +
       credentials.page +
       '&P=100'
-    return axios.get(url + base, credentials).then(
+    return axios.get(url + base, {
+      headers: {
+        Authorization: token
+      }
+
+    }).then(
       response => response.data,
       (error) => {
         console.error(error)
       })
   },
-  addQuestion (credentials, slug) {
+  addQuestion (credentials, slug, token) {
     return axios
-      .post(url + 'api/streamer/' + `${slug}` + '/create_question', credentials)
+      .post(url + 'api/streamer/' + `${slug}` + '/create_question', credentials, {
+        headers: {
+          Authorization: token
+        }
+
+      })
       .then(
         response => response.data,
         (error) => {
@@ -69,9 +77,14 @@ export default {
         }
       )
   },
-  editQuestion (credentials, slug) {
+  editQuestion (credentials, slug, token) {
     return axios
-      .put(url + 'api/streamer/question/' + `${slug}`, credentials)
+      .put(url + 'api/streamer/index.vue/' + `${slug}`, credentials, {
+        headers: {
+          Authorization: token
+        }
+
+      })
       .then(
         response => response.data,
         (error) => {
@@ -79,8 +92,13 @@ export default {
         }
       )
   },
-  deleteQuestion (slug) {
-    return axios.delete(url + 'api/streamer/question/' + `${slug}`).then(
+  deleteQuestion (slug, token) {
+    return axios.delete(url + 'api/streamer/index.vue/' + `${slug}`, {
+      headers: {
+        Authorization: token
+      }
+
+    }).then(
       response => response.data,
       (error) => {
         console.error(error)

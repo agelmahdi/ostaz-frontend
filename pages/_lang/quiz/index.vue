@@ -27,7 +27,7 @@
         <v-toolbar flat color="white">
           <v-text-field
             v-model="search"
-            label="Search"
+            :label="$t('table.search')"
             single-line
             hide-details
           />
@@ -75,10 +75,10 @@
             <v-card-actions>
               <v-spacer />
               <v-btn color="blue darken-1" text @click="close">
-                Cancel
+                {{ $t('btn.cancel') }}
               </v-btn>
               <v-btn color="blue darken-1" text @click="save">
-                Save
+                {{ $t('btn.save') }}
               </v-btn>
             </v-card-actions>
           </v-card>
@@ -92,12 +92,15 @@
       <!--                            </template>-->
 
       <template v-slot:item.actions="{ item }">
-        <v-btn class="mr" color="primary" dark @click="questions(item)">
-          Add Questions
-          <v-icon dark right>
-            mdi-cloud-upload
-          </v-icon>
-        </v-btn>
+        <nuxt-link :to="localePath(`/quiz/${item.slug}/questions`)">
+          <!--        <nuxt-link :to="{name:'local-quiz-slug-questions'}">-->
+          <v-btn class="mr" color="primary" dark>
+            {{ $t('btn.add_questions') }}
+            <v-icon dark right>
+              mdi-cloud-upload
+            </v-icon>
+          </v-btn>
+        </nuxt-link>
 
         <v-icon small class="mr-2" @click="editItem(item)">
           mdi-pencil
@@ -107,9 +110,7 @@
         </v-icon>
       </template>
       <template v-slot:no-data>
-        <v-btn color="primary" @click="initialize">
-          Reset
-        </v-btn>
+        <v-label>{{ $t('tabel.nodata') }}</v-label>
       </template>
     </v-data-table>
   </v-app>
@@ -126,22 +127,7 @@ export default {
     quiz_time: '3',
     quiz_lang: 'ar',
     questions_number: '33',
-    headers: [
-      // {
-      //     text: 'Dessert (100g serving)',
-      //     align: 'start',
-      //     sortable: false,
-      //     value: 'name',
-      // },
-      { text: 'title', value: 'title' },
-      { text: 'slug', value: 'slug' },
-      { text: 'time', value: 'time' },
-      { text: 'lang', value: 'lang' },
-      { text: 'questions_limit', value: 'questions_limit' },
-      { text: 'question_number', value: 'question_number' },
 
-      { text: 'Actions', value: 'actions', sortable: false }
-    ],
     data: [],
     editedIndex: -1,
     editedItem: {
@@ -161,8 +147,25 @@ export default {
       question_number: 0
     }
   }),
-
   computed: {
+    headers () {
+      return [
+        // {
+        //     text: 'Dessert (100g serving)',
+        //     align: 'start',
+        //     sortable: false,
+        //     value: 'name',
+        // },
+        { text: this.$t('table.title'), value: 'title' },
+        // { text: 'slug', value: 'slug' },
+        { text: this.$t('table.time'), value: 'time' },
+        // { text: 'lang', value: 'lang' },
+        // { text: 'questions_limit', value: 'questions_limit' },
+        // { text: 'question_number', value: 'question_number' },
+
+        { text: this.$t('table.actions'), value: 'actions', sortable: false }
+      ]
+    },
     formTitle () {
       return this.editedIndex === -1 ? 'New Item' : 'Edit Item'
     }
@@ -172,6 +175,9 @@ export default {
     dialog (val) {
       val || this.close()
     }
+  },
+  mounted () {
+    console.log(this.$route.fullPath)
   },
 
   created () {
@@ -241,13 +247,7 @@ export default {
       this.dialog = true
     },
     questions (item) {
-      this.$router.push({
-        name: 'questions',
-
-        params: {
-          quiz: item.slug
-        }
-      })
+      this.$route.push(this.localePath(`quiz/${item.slug}`))
     },
 
     deleteItem (item) {

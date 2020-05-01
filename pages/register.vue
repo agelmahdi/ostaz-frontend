@@ -1,13 +1,4 @@
-<template>
-  <v-app />
-</template>
 <script>
-export default {
-  layout: 'register',
-  data () {
-    return {
-      //
-    }
-  }
-}
+import register from '~/pages/_lang/register'
+export default register
 </script>

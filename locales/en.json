@@ -146,5 +146,37 @@
      "title": "Quiz Title",
      "entertitle": "Enter quiz title",
      "save": "Save Quiz"
+   },
+   "question": {
+     "title": "Question title",
+     "answer1" : "Answer 1",
+     "answer2" : "Answer 2",
+     "answer3" : "Answer 3",
+     "answer4" : "Answer 4",
+     "correct" : "Is correct answer?",
+     "save" : "Save question"
+   },
+   "table": {
+     "title": "Title",
+     "search" : "Search",
+     "answers" : "Answers",
+     "actions": "Actions",
+     "nodata": "No data right now!",
+     "time": "Time"
+   },
+   "btn": {
+     "save" : "Save",
+     "cancel" : "Cancel",
+     "logout": "Logout",
+       "add_questions": "Add Questions"
+   },
+   "drawer": {
+     "quiz" : "Quizzes",
+     "questions" : "Questions",
+     "students" : "Students",
+     "groups" : "Groups"
+   },
+   "ostaz": {
+     "profile": "Profile"
    }
 }

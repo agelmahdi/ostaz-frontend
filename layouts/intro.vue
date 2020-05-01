@@ -966,31 +966,14 @@ export default {
       },
       link: [
         { rel: 'stylesheet', href: '/intro/css/bootstrap.min.css' },
-        { rel: 'stylesheet', href: '/intro/css/owl-carousel/owl.carousel.css' },
         { rel: 'stylesheet', href: '/intro/css/font-awesome.css' },
-        {
-          rel: 'stylesheet',
-          href: '/intro/css/magnific-popup/magnific-popup.css'
-        },
-        { rel: 'stylesheet', href: '/intro/css/animate.css' },
+
         { rel: 'stylesheet', href: '/intro/css/ionicons.min.css' },
         { rel: 'stylesheet', href: '/intro/css/style.css' },
-        { rel: 'stylesheet', href: '/intro/css/responsive.css' },
         { rel: 'stylesheet', href: '/intro/css/custom.css' }
       ],
       script: [
         { type: 'module', src: '/intro/js/jquery.min.js' },
-        { type: 'module', src: '/intro/js/owl-carousel/owl.carousel.min.js' },
-        { type: 'module', src: '/intro/js/counter/jquery.countTo.js' },
-        { type: 'module', src: '/intro/js/jquery.appear.js' },
-        {
-          type: 'module',
-          src: '/intro/js/magnific-popup/jquery.magnific-popup.min.js'
-        },
-        { type: 'module', src: '/intro/js/retina.min.js' },
-        { type: 'module', src: '/intro/js/wow.min.js' },
-        { type: 'module', src: '/intro/js/jquery.vide.js' },
-        { type: 'module', src: '/intro/js/jquery.countdown.min.js' },
         { type: 'module', src: '/intro/js/bootstrap.min.js' },
         { type: 'module', src: '/intro/js/custom.js' }
       ]

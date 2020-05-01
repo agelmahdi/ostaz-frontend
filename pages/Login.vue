@@ -1,13 +1,4 @@
-<template>
-  <v-app />
-</template>
 <script>
-export default {
-  layout: 'login',
-  data () {
-    return {
-      //
-    }
-  }
-}
+import login from '~/pages/_lang/login'
+export default login
 </script>
