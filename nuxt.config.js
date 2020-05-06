@@ -17,7 +17,16 @@ export default {
         content: process.env.npm_package_description || ''
       }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href: '/fontawesome/css/all.min.css' },
+      {
+        rel: "stylesheet",
+        href: "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css",
+        integrity: "sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN",
+        crossorigin: "anonymous"
+      },
+      { rel: 'stylesheet', href: '/fontawesome/css/fontawesome.min.css' },
+]
   },
   /*
    ** Customize the progress-bar color
@@ -79,7 +88,8 @@ export default {
     '@nuxtjs/dotenv',
     'nuxt-i18n',
     '@nuxtjs/proxy',
-    '@nuxtjs/auth'
+    '@nuxtjs/auth',
+
   ],
   proxy: {
     '/api': {
@@ -115,7 +125,7 @@ export default {
       }
     },
     redirect: {
-      login: '/login',
+      login: '/welcome',
       logout: false,
       callback: false,
       home: false

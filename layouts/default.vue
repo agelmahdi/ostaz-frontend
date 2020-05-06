@@ -6,17 +6,17 @@
         <Nuxt />
       </v-container>
     </v-content>
-    <vfooter />
+    <!--    <vfooter />-->
   </v-app>
 </template>
 <script>
 import drawer from '../components/drawer'
-import vfooter from '../components/vfooter'
+// import vfooter from '../components/vfooter'
 export default {
   middleware: 'auth',
   components: {
-    drawer,
-    vfooter
+    drawer
+    // vfooter
   },
   created () {
     this.$vuetify.rtl = this.$i18n.locale === 'ar'

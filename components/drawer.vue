@@ -2,13 +2,14 @@
   <div>
     <v-navigation-drawer
       v-model="drawer"
-      :color="color"
+      color="#120136"
       :expand-on-hover="expandOnHover"
       :mini-variant="miniVariant"
       :right="right"
       :permanent="permanent"
       :src="bg"
       app
+      dark
     >
       <v-list dense nav class="py-0">
         <v-list-item two-line :class="miniVariant && 'px-0'">
@@ -26,7 +27,7 @@
 
         <v-list-item link>
           <v-list-item-icon>
-            <v-icon />
+            <v-icon>fab fa-buromobelexperte</v-icon>
           </v-list-item-icon>
 
           <v-list-item-content>
@@ -39,7 +40,7 @@
         </v-list-item>
         <v-list-item link>
           <v-list-item-icon>
-            <v-icon />
+            <v-icon>far fa-question-circle</v-icon>
           </v-list-item-icon>
 
           <v-list-item-content>
@@ -48,7 +49,7 @@
         </v-list-item>
         <v-list-item link>
           <v-list-item-icon>
-            <v-icon />
+            <v-icon>fas fa-user-plus</v-icon>
           </v-list-item-icon>
 
           <v-list-item-content>
@@ -57,7 +58,7 @@
         </v-list-item>
         <v-list-item link>
           <v-list-item-icon>
-            <v-icon />
+            <v-icon>fas fa-users</v-icon>
           </v-list-item-icon>
 
           <v-list-item-content>
@@ -66,7 +67,11 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar :color="color" dark :elevation="0">
+    <v-app-bar
+      color="#eeeeee"
+
+      :elevation="0"
+    >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-toolbar-title>{{ $t('home.title') }}{{ ' '+this.$auth.user.name_ar }}</v-toolbar-title>
       <v-spacer />
@@ -82,7 +87,7 @@
             icon
             v-on="on"
           >
-            <v-icon>mdi-dots-vertical</v-icon>
+            <v-icon>far fa-user-circle</v-icon>
           </v-btn>
           <v-btn
             color="error"
@@ -143,10 +148,10 @@ export default {
       color: 'blue',
       colors: ['primary', 'blue', 'success', 'red', 'teal'],
       right: false,
-      permanent: false,
+      permanent: true,
       miniVariant: true,
       expandOnHover: true,
-      background: false
+      background: true
     }
   },
   computed: {

@@ -18,12 +18,12 @@ NOTE: This is main stylesheet of template, This file contains the styling for th
 :: Loader
 :: Buttons
 :: Div Shadow
-:: Page Section Margin Padding 
-:: Text Weight 
-:: Text Color 
-:: Background Color 
+:: Page Section Margin Padding
+:: Text Weight
+:: Text Color
+:: Background Color
 :: BG Effect
-:: Background Gradient 
+:: Background Gradient
 :: Section Title
 :: Header
 :: Banner
@@ -133,18 +133,18 @@ blockquote { border-left: 5px solid #1e50e2; font-size: 16px; }
 .iq-box-shadow { position: relative; z-index: 9; -webkit-box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.1); -moz-box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.1); box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.1); }
 
 /*---------------------------------------------------------------------
-                    Page Section Margin Padding 
+                    Page Section Margin Padding
 ---------------------------------------------------------------------*/
 
 /*----------------
-Section padding 
+Section padding
 ----------------*/
 .overview-block-ptb { padding: 100px 0; }
 .overview-block-pt { padding: 100px 0 0; }
 .overview-block-pb { padding: 0 0 100px; }
 
 /*----------------
-Padding All 
+Padding All
 ----------------*/
 .iq-pall { padding: 0px; }
 .iq-pall-10 { padding: 10px; }
@@ -161,7 +161,7 @@ Padding All
 .iq-pall-100 { padding: 100px; }
 
 /*----------------
-Padding Top and Bottom 
+Padding Top and Bottom
 ----------------*/
 .iq-ptb-0 { padding: 0; }
 .iq-ptb-10 { padding: 10px 0; }
@@ -178,7 +178,7 @@ Padding Top and Bottom
 .iq-ptb-100 { padding: 100px 0; }
 
 /*----------------
-Padding Left and right 
+Padding Left and right
 ----------------*/
 .iq-plr-0 { padding: 0; }
 .iq-plr-10 { padding: 0 10px; }
@@ -195,7 +195,7 @@ Padding Left and right
 .iq-plr-100 { padding: 0 100px; }
 
 /*----------------
-Padding top 
+Padding top
 ----------------*/
 .iq-pt-0 { padding-top: 0px; }
 .iq-pt-10 { padding-top: 10px; }
@@ -212,7 +212,7 @@ Padding top
 .iq-pt-100 { padding-top: 100px; }
 
 /*----------------
-Padding Bottom 
+Padding Bottom
 ----------------*/
 .iq-pb-0 { padding-bottom: 0px; }
 .iq-pb-10 { padding-bottom: 10px; }
@@ -229,7 +229,7 @@ Padding Bottom
 .iq-pb-100 { padding-bottom: 100px; }
 
 /*----------------
-Padding Left 
+Padding Left
 ----------------*/
 .iq-pl-0 { padding-left: 0; }
 .iq-pl-10 { padding-left: 10px; }
@@ -246,7 +246,7 @@ Padding Left
 .iq-pl-100 { padding-left: 100px; }
 
 /*----------------
-Padding Right 
+Padding Right
 ----------------*/
 .iq-pr-0 { padding-right: 0px; }
 .iq-pr-10 { padding-right: 10px; }
@@ -263,7 +263,7 @@ Padding Right
 .iq-pr-100 { padding-right: 100px; }
 
 /*----------------
-Margin All 
+Margin All
 ----------------*/
 .iq-mall-0 { margin: 0; }
 .iq-mall-10 { margin: 10px; }
@@ -280,7 +280,7 @@ Margin All
 .iq-mall-100 { margin: 100px; }
 
 /*----------------
-Margin Top and Bottom 
+Margin Top and Bottom
 ----------------*/
 .iq-mtb-0 { margin: 0; }
 .iq-mtb-10 { margin: 10px 0; }
@@ -297,7 +297,7 @@ Margin Top and Bottom
 .iq-mtb-100 { margin: 100px 0; }
 
 /*----------------
-Margin Left and Right 
+Margin Left and Right
 ----------------*/
 .iq-mlr-0 { margin: 0; }
 .iq-mlr-10 { margin: 0 10px; }
@@ -314,7 +314,7 @@ Margin Left and Right
 .iq-mlr-100 { margin: 0 100px; }
 
 /*----------------
-Margin Top 
+Margin Top
 ----------------*/
 .iq-mt-0 { margin-top: 0px; }
 .iq-mt-10 { margin-top: 10px; }
@@ -331,7 +331,7 @@ Margin Top
 .iq-mt-100 { margin-top: 100px; }
 
 /*----------------
-Margin Bottom 
+Margin Bottom
 ----------------*/
 .iq-mb-0 { margin-bottom: 0px; }
 .iq-mb-10 { margin-bottom: 10px; }
@@ -348,7 +348,7 @@ Margin Bottom
 .iq-mb-100 { margin-bottom: 100px; }
 
 /*----------------
-Margin Left 
+Margin Left
 ----------------*/
 .iq-ml-0 { margin-left: 0px; }
 .iq-ml-10 { margin-left: 10px; }
@@ -383,7 +383,7 @@ Margin Right
 
 
 /*---------------------------------------------------------------------
-                            Text Weight 
+                            Text Weight
 -----------------------------------------------------------------------*/
 .iq-tw-1 { font-weight: 100; }
 .iq-tw-2 { font-weight: 200; }
@@ -396,7 +396,7 @@ Margin Right
 .iq-tw-9 { font-weight: 900; }
 
 /*---------------------------------------------------------------------
-                            Text Color 
+                            Text Color
 -----------------------------------------------------------------------*/
 .iq-font-blue { color: #1e50e2; }
 .iq-font-light-blue { color: #1e50e2; }
@@ -406,7 +406,7 @@ Margin Right
 .iq-font-light { color: #666666; }
 
 /*---------------------------------------------------------------------
-                          Background Color 
+                          Background Color
 -----------------------------------------------------------------------*/
 .white-bg { background: #ffffff; }
 .dark-bg { background: #2c3e50; }
@@ -420,7 +420,7 @@ Margin Right
 .iq-bg-fixed { background-color: rgba(0, 0, 0, 0); background-origin: initial; background-position: center center; background-repeat: no-repeat; background-size: cover !important; position: relative; z-index: 0; background-attachment: fixed !important; }
 
 /*---------------------------------------------------------------------
-                       Background Gradient 
+                       Background Gradient
 ---------------------------------------------------------------------*/
 .iq-over-black-80:before { content: ""; height: 100%; left: 0; position: absolute; top: 0; width: 100%; z-index: -1; background:  rgba(30, 80, 226, 0.8); }
 .iq-over-black-90:before { content: ""; height: 100%; left: 0; position: absolute; top: 0; width: 100%; z-index: -1; background:  rgba(30, 80, 226, 0.9); }
@@ -429,12 +429,12 @@ Margin Right
 /*---------------------------------------------------------------------
                            Section Title
 -----------------------------------------------------------------------*/
-.heading-title { margin-bottom: 80px; text-align: center; }
+.heading-title { margin-bottom: 1px; text-align: center; }
 .heading-title .title { position: relative; }
 .heading-title .divider { border: 2px solid #1e50e2; position: relative; display: inline-block; width: 30px; margin-top: 30px; }
 .heading-title .divider:after { position: absolute; content: ""; top: -8px; left: 0; width: 50px; height: 1px; background: #1e50e2; transition: all 0.5s ease-in-out; transition: all 0.5s ease-in-out; -moz-transition: all 0.5s ease-in-out; -ms-transition: all 0.5s ease-in-out; -o-transition: all 0.5s ease-in-out; -webkit-transition: all 0.5s ease-in-out; }
 .heading-title .divider:before { position: absolute; content: ""; bottom: -8px; right: 0; width: 50px; height: 1px; background: #1e50e2; transition: all 0.5s ease-in-out; transition: all 0.5s ease-in-out; -moz-transition: all 0.5s ease-in-out; -ms-transition: all 0.5s ease-in-out; -o-transition: all 0.5s ease-in-out; -webkit-transition: all 0.5s ease-in-out; }
-.heading-title p { padding: 0 100px; display: block; margin-bottom: 50px; margin-top: 20px; }
+.heading-title p { padding: 0 100px; display: block; margin-bottom: 1px; margin-top: 20px; }
 
 /* heading Title border White */
 .heading-title .divider.white { border-color: #fff; }

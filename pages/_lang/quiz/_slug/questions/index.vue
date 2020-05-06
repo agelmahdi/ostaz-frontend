@@ -1,14 +1,31 @@
 <template>
-  <v-app id="inspire">
+  <v-app>
     <v-progress-linear v-if="loading" indeterminate color="green" />
-
-    <v-form lazy-validation>
+    <v-snackbar
+      v-model="snackbar"
+      :bottom="y === 'bottom'"
+      :color="scolor"
+      :left="x === 'left'"
+      :timeout="stimeout"
+      :top="y === 'top'"
+    >
+      {{ stext }}
+      <v-btn
+        dark
+        text
+        @click="snackbar = false"
+      >
+        Close
+      </v-btn>
+    </v-snackbar>
+    <v-form ref="form" lazy-validation>
       <v-container>
         <v-row>
           <v-col cols="12" sm="12">
             <v-text-field
               v-model="title"
               :error-messages="errors"
+              :rules="nameRules"
               :label="$t('question.title')"
               outlined
               required
@@ -19,6 +36,8 @@
               v-model="answer1"
               :error-messages="errors"
               :label="$t('question.answer1')"
+              :rules="nameRules"
+
               outlined
               required
             />
@@ -35,6 +54,8 @@
               v-model="answer2"
               :error-messages="errors"
               :label="$t('question.answer2')"
+              :rules="nameRules"
+
               outlined
               required
             />
@@ -43,6 +64,7 @@
               v-model="checked2"
               value="1"
               :label="$t('question.correct')"
+
               type="checkbox"
             />
           </v-col>
@@ -51,6 +73,8 @@
               v-model="answer3"
               :error-messages="errors"
               :label="$t('question.answer3')"
+              :rules="nameRules"
+
               outlined
               required
             />
@@ -67,6 +91,8 @@
               v-model="answer4"
               :error-messages="errors"
               :label="$t('question.answer4')"
+              :rules="nameRules"
+
               outlined
               required
             />
@@ -140,6 +166,7 @@
                     <v-text-field
                       v-model="editedItem.title"
                       :label="$t('question.title')"
+                      outlined
                     />
                   </v-col>
 
@@ -150,10 +177,10 @@
                     sm="12"
                   >
                     <v-row>
-                      <v-text-field v-model="answer.title" label="Answer 1" />
+                      <v-text-field v-model="answer.title" label="Answer 1" outlined />
                       <v-checkbox
                         v-model="answer.type"
-                        value="1"
+                        value="true"
                         type="checkbox"
                       />
                     </v-row>
@@ -217,7 +244,14 @@ export default {
     data: [],
     meta: [],
     errors: [],
-
+    scolor: '',
+    smode: '',
+    colors: ['success', 'info', 'error', 'cyan darken-2'],
+    snackbar: false,
+    stext: '',
+    stimeout: 2000,
+    x: null,
+    y: 'top',
     editedIndex: -1,
     editedItem: {
       title: '',
@@ -230,6 +264,11 @@ export default {
     }
   }),
   computed: {
+    nameRules () {
+      return [
+        v => !!v || this.$t('register.required')
+      ]
+    },
     headers () {
       return [
         { text: this.$t('table.title'), value: 'title' },
@@ -303,6 +342,9 @@ export default {
       } catch (error) {
         this.msg = error.response.data.msg
         console.log(error.response.data.msg)
+        this.snackbar = true
+        this.scolor = 'error'
+        this.stext = this.$t('error.something_wrong')
         this.loading = false
       }
     },
@@ -315,30 +357,47 @@ export default {
       // };
       // console.log(credentialss);
 
-      try {
-        const answers = [
-          { title: this.answer1, type: this.checked1 ? 1 : 0 },
-          { title: this.answer2, type: this.checked2 ? 1 : 0 },
-          { title: this.answer3, type: this.checked3 ? 1 : 0 },
-          { title: this.answer4, type: this.checked4 ? 1 : 0 }
-        ]
+      if (!this.$refs.form.validate()) {
 
-        const credentials = {
-          title: this.title,
-          answers: JSON.stringify(answers)
+      } else if (
+        !this.checked1 &&
+        !this.checked2 &&
+        !this.checked3 &&
+        !this.checked4
+      ) {
+        this.snackbar = true
+        this.scolor = 'error'
+        this.stext = this.$t('question.check_one')
+      } else {
+        try {
+          const answers = [
+            { title: this.answer1, type: this.checked1 ? 1 : 0 },
+            { title: this.answer2, type: this.checked2 ? 1 : 0 },
+            { title: this.answer3, type: this.checked3 ? 1 : 0 },
+            { title: this.answer4, type: this.checked4 ? 1 : 0 }
+          ]
+
+          const credentials = {
+            title: this.title,
+            answers: JSON.stringify(answers)
+          }
+          console.log(credentials)
+
+          const response = await AuthService.addQuestion(credentials, this.$route.params.slug, this.$auth.getToken('local'))
+          this.msg = response.msg
+          this.data = response.data
+          console.log(response.data)
+          // this.sucess.push('Question successfully saved');
+          this.$router.go()
+        } catch (error) {
+          this.msg = error.response.data.msg
+          console.log(error.response.data.msg)
+
+          this.snackbar = true
+          this.scolor = 'error'
+          this.stext = this.$t('error.something_wrong')
+          this.loading = false
         }
-        console.log(credentials)
-
-        const response = await AuthService.addQuestion(credentials, this.$route.params.slug, this.$auth.getToken('local'))
-        this.msg = response.msg
-        this.data = response.data
-        console.log(response.data)
-        // this.sucess.push('Question successfully saved');
-        this.$router.go()
-      } catch (error) {
-        this.msg = error.response.data.msg
-        console.log(error.response.data.msg)
-        this.loading = false
       }
     },
     async editQuestion () {
@@ -349,10 +408,12 @@ export default {
         }
         console.log(credentials)
         console.log(this.editedItem.slug)
+        const token = this.$auth.getToken('local')
 
         const response = await AuthService.editQuestion(
           credentials,
-          this.editedItem.slug
+          this.editedItem.slug,
+          token
         )
         this.msg = response.msg
         this.data = response.data
@@ -366,6 +427,9 @@ export default {
       } catch (error) {
         this.msg = error.response.data.msg
         console.log(error.response.data.msg)
+        this.snackbar = true
+        this.scolor = 'error'
+        this.stext = this.$t('error.something_wrong')
         this.loading = false
       }
     },
@@ -380,6 +444,9 @@ export default {
       } catch (error) {
         this.msg = error.response.data.msg
         console.log(error.response.data.msg)
+        this.snackbar = true
+        this.scolor = 'error'
+        this.stext = this.$t('error.something_wrong')
         this.loading = false
       }
     },

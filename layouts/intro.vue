@@ -98,19 +98,14 @@
                   {{ $t("intro.fast") }}</small>{{ $t("intro.amazing") }}
               </h1>
             </div>
-            <div class="col-md-4 col-lg-4">
+            <div v-if="isLogin" class="col-md-4 col-lg-4">
               <form class="banner-form">
-                <div class="form-icon">
-                  <img
-                    class="img-responsive center-block"
-                    src="/intro/images/logo-white.png"
-                    alt="#"
-                  >
+                <div class="heading-title">
+                  <h5 class="title iq-tw-2">
+                    {{ $t("intro.login") }}
+                  </h5>
+                  <div class="divider" />
                 </div>
-                <h3 class="iq-tw-7">
-                  <small>{{ $t("intro.student") }}</small>
-                  {{ $t("intro.login") }}
-                </h3>
                 <div class="form-group">
                   <label for="exampleInputEmail1" class="text-uppercase">{{
                     $t("intro.email")
@@ -139,16 +134,88 @@
                     $t("intro.remeber")
                   }}</label>
                 </div>
+
+                <a
+                  class="button btn-block text-center iq-mt-30"
+                >{{ $t("intro.enter") }}</a>
+
+                <label class="text-center iq-mlr-30 iq-mt-10">
+                  {{ $t('intro.noaccount') }} <button class="text-success" @click.prevent="isLogin = false">
+                    {{ $t('intro.signup') }}
+                  </button>
+                </label>
+              </form>
+            </div>
+
+            <div v-else class="col-md-4 col-lg-4">
+              <form class="banner-form">
+                <div class="heading-title">
+                  <h5 class="title iq-tw-2">
+                    {{ $t("intro.register") }}
+                  </h5>
+                  <div class="divider" />
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputNameْ" class="text-uppercase">{{
+                    $t("intro.username")
+                  }}</label>
+                  <input
+                    id="exampleInputNameْ"
+                    type="text"
+                    class="form-control"
+                    :placeholder="$t('intro.entername')"
+                  >
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail2" class="text-uppercase">{{
+                    $t("intro.email")
+                  }}</label>
+                  <input
+                    id="exampleInputEmail2"
+                    type="email"
+                    class="form-control"
+                    :placeholder="$t('intro.emailaddess')"
+                  >
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword2" class="text-uppercase">{{
+                    $t("intro.password")
+                  }}</label>
+                  <input
+                    id="exampleInputPassword2"
+                    type="password"
+                    class="form-control"
+                    :placeholder="$t('intro.enterpassword')"
+                  >
+                </div>
+                <div class="form-group">
+                  <label for="confirm" class="text-uppercase">{{
+                    $t("intro.confirm")
+                  }}</label>
+                  <input
+                    id="confirm"
+                    type="password"
+                    class="form-control"
+                    :placeholder="$t('intro.confirmpassword')"
+                  >
+                </div>
+
                 <a
                   href="javascript:void(0)"
                   class="button btn-block text-center iq-mt-30"
                 >{{ $t("intro.enter") }}</a>
+                <label class="text-center iq-mlr-30 iq-mt-10">
+                  {{ $t('intro.haveaccount') }} <button class="text-success" @click.prevent="isLogin = !isLogin">
+                    {{ $t('intro.signin') }}
+                  </button>
+                </label>
               </form>
             </div>
           </div>
         </div>
       </section>
     </div>
+
     <!-- Banner End -->
 
     <div class="main-content">
@@ -171,6 +238,19 @@
               </h2>
               <p>
                 {{ $t("intro.aboutdis") }}
+              </p>
+              <h2 class="iq-tw-6 iq-mt-40">
+                {{ $t("intro.mission") }}
+              </h2>
+              <p>
+                {{ $t("intro.missiondis") }}
+              </p>
+
+              <h2 class="iq-tw-6 iq-mt-40">
+                {{ $t("intro.vision") }}
+              </h2>
+              <p>
+                {{ $t("intro.visiondis") }}
               </p>
             </div>
           </div>
@@ -740,9 +820,9 @@
         </div>
       </section>
 
-      <!-- Frequently Asked Questions END -->
+    <!-- Frequently Asked Questions END -->
 
-      <!-- Frequently Asked Questions -->
+    <!-- Frequently Asked Questions -->
     </div>
 
     <div class="footer">
@@ -928,7 +1008,7 @@
         </div>
       </footer>
 
-      <!-- Footer END -->
+    <!-- Footer END -->
     </div>
 
     <!-- back-to-top -->
@@ -941,7 +1021,16 @@
 
 <script>
 export default {
+  data () {
+    return {
+      isLogin: true
+
+    }
+  },
   methods: {
+    toRegister () {
+      this.isLogin = false
+    },
     reloadthis () {
       location.reload()
     },

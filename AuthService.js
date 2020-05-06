@@ -79,7 +79,7 @@ export default {
   },
   editQuestion (credentials, slug, token) {
     return axios
-      .put(url + 'api/streamer/index.vue/' + `${slug}`, credentials, {
+      .put(url + 'api/streamer/question/' + `${slug}`, credentials, {
         headers: {
           Authorization: token
         }
@@ -93,7 +93,7 @@ export default {
       )
   },
   deleteQuestion (slug, token) {
-    return axios.delete(url + 'api/streamer/index.vue/' + `${slug}`, {
+    return axios.delete(url + 'api/streamer/question/' + `${slug}`, {
       headers: {
         Authorization: token
       }
@@ -104,4 +104,21 @@ export default {
         console.error(error)
       })
   }
+
+  // ---------------------------Student------------------------------
+  //
+  // studentLogin () {
+  //   return axios.post(url + 'api/follower/login', credentials).then(
+  //     response => response.data,
+  //     (error) => {
+  //       console.error(error)
+  //     })
+  // },
+  // studentRegister () {
+  //   return axios.post(url + 'api/follower/register', credentials).then(
+  //     response => response.data,
+  //     (error) => {
+  //       console.error(error)
+  //     })
+  // }
 }

@@ -19,7 +19,8 @@
      "fast": "OSTAZ provide easy & fast communication with",
      "amazing": "AMAZING TEACHERS",
      "student": "Welcome Student",
-     "login": "Login",
+     "login": "Student Sign In",
+     "register": "Student Sign Up",
      "email": "Email",
      "emailaddess": "Enter Email Address",
      "password": "Password",
@@ -27,11 +28,25 @@
      "remeber": "Remember me",
      "enter": "Sign in",
      "about": "About Ostaz",
-     "aboutdis": "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic type setting,\n\nAll the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, naking this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable.",
+     "mission": "Our mission",
+     "vision": "Our vision",
+     "aboutdis": "is the first platform to publish and receive remedial lessons for education stages via the Internet in a manner that ensures the greatest benefit to the student and provides him with security, privacy and all factors that help to raise his productivity and ensure the achievement of the required results from the study.",
+     "missiondis": "The VSEL platform is here to create an effective contribution to the social spacing process that has become essential in order to keep time, health, effort and money for students who will not have to leave their place in order to get the desired result",
+     "visiondis": "We seek to change the entire educational process to the best by integrating past experience with the needs of the present and the future through technology ",
      "news": "Subscribe Our Newsletter",
      "subscribe": "Subscribe",
      "right": "Copyright 2020 Ostaz Developed by",
-     "ostazteam": "Ostaz Team"
+     "ostazteam": "Ostaz Team",
+     "noaccount" : "Don’t have an account?",
+     "signup" : "Sign up!",
+
+     "haveaccount" : "Do You have an account?",
+     "signin" : "Sign In!",
+     "entername" : "Enter full name",
+     "username" : "Full name",
+     "confirm" : "Confirm Password",
+     "confirmpassword" : "Enter Confirm Password"
+
 
 
    },
@@ -154,7 +169,8 @@
      "answer3" : "Answer 3",
      "answer4" : "Answer 4",
      "correct" : "Is correct answer?",
-     "save" : "Save question"
+     "save" : "Save question",
+     "check_one": "at least one correct answer checked"
    },
    "table": {
      "title": "Title",
