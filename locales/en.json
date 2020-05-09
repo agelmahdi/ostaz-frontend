@@ -159,7 +159,13 @@
    },
    "quiz": {
      "title": "Quiz Title",
+     "time": "Quiz Time",
+     "min": "Minutes",
      "entertitle": "Enter quiz title",
+     "questionsno": "Question numbers",
+     "question": "Question",
+     "lang": "Language",
+     "enterlang": "Enter quiz language",
      "save": "Save Quiz"
    },
    "question": {
@@ -184,7 +190,8 @@
      "save" : "Save",
      "cancel" : "Cancel",
      "logout": "Logout",
-       "add_questions": "Add Questions"
+     "add_questions": "Add Questions",
+     "sure_delete": "Are you sure you want to delete"
    },
    "drawer": {
      "quiz" : "Quizzes",
@@ -194,5 +201,13 @@
    },
    "ostaz": {
      "profile": "Profile"
+   },
+   "success": {
+     "quiz": "Quiz successfully saved",
+     "quiz_edit": "Quiz successfully edited",
+     "quiz_delete": "Quiz successfully deleted",
+     "question": "Question successfully saved",
+     "question_edit": "Question successfully edited",
+     "question_delete": "Question successfully deleted"
    }
 }

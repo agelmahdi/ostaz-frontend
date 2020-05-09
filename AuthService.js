@@ -43,6 +43,33 @@ export default {
         console.error(error)
       })
   },
+  editQuiz (credentials, slug, token) {
+    return axios
+      .put(url + 'api/streamer/quiz/' + `${slug}`, credentials, {
+        headers: {
+          Authorization: token
+        }
+
+      })
+      .then(
+        response => response.data,
+        (error) => {
+          console.error(error)
+        }
+      )
+  },
+  deleteQuiz (slug, token) {
+    return axios.delete(url + 'api/streamer/quiz/' + `${slug}`, {
+      headers: {
+        Authorization: token
+      }
+
+    }).then(
+      response => response.data,
+      (error) => {
+        console.error(error)
+      })
+  },
   allQuestions (credentials, slug, token) {
     const base =
       'api/streamer/' +

@@ -132,7 +132,7 @@ export default {
       if (this.$route.query.next && isRelativeURL(this.$route.query.next)) {
         this.$router.push(this.$route.query.next)
       } else {
-        this.$router.push(this.localePath('/'))
+        this.$router.push(this.localePath('/admin/'))
       }
     },
     async login () {

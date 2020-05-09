@@ -122,7 +122,7 @@ export default {
         },
         tokenRequired: true,
         tokenType: 'Bearer'
-      }
+      },
     },
     redirect: {
       login: '/welcome',

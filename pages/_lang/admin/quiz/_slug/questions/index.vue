@@ -15,7 +15,7 @@
         text
         @click="snackbar = false"
       >
-        Close
+        {{ $t('btn.cancel') }}
       </v-btn>
     </v-snackbar>
     <v-form ref="form" lazy-validation>
@@ -118,7 +118,7 @@
     </v-form>
     <v-data-table
       :headers="headers"
-      :items="data"
+      :items="questions"
       :search="search"
       :pagination.sync="pagination"
       class="elevation-1"
@@ -178,8 +178,18 @@
                   >
                     <v-row>
                       <v-text-field v-model="answer.title" label="Answer 1" outlined />
+
                       <v-checkbox
+                        v-if="answer.type===1"
                         v-model="answer.type"
+
+                        value="true"
+                        type="checkbox"
+                      />
+                      <v-checkbox
+                        v-else
+                        v-model="answer.type"
+
                         value="true"
                         type="checkbox"
                       />
@@ -217,10 +227,15 @@
   </v-app>
 </template>
 <script>
-import AuthService from '../../../../../AuthService'
+import { mapState } from 'vuex'
+import AuthService from '../../../../../../AuthService'
+
 export default {
   components: {},
   props: ['quiz'],
+  async fetch ({ store, params }) {
+    await store.dispatch('admin/loadQuestions', { slug: params.slug })
+  },
   data: () => ({
     dialog: false,
     valid: false,
@@ -264,6 +279,9 @@ export default {
     }
   }),
   computed: {
+    ...mapState({
+      questions: state => state.admin.questions
+    }),
     nameRules () {
       return [
         v => !!v || this.$t('register.required')
@@ -311,7 +329,7 @@ export default {
   },
 
   created () {
-    this.allQuestions()
+    // this.allQuestions()
   },
 
   methods: {
@@ -388,7 +406,11 @@ export default {
           this.data = response.data
           console.log(response.data)
           // this.sucess.push('Question successfully saved');
-          this.$router.go()
+
+          this.snackbar = true
+          this.scolor = 'success'
+          this.stext = this.$t('success.question')
+          this.$store.dispatch('admin/loadQuestions', { slug: this.$route.params.slug })
         } catch (error) {
           this.msg = error.response.data.msg
           console.log(error.response.data.msg)
@@ -417,12 +439,10 @@ export default {
         )
         this.msg = response.msg
         this.data = response.data
-        console.log(response.data)
-        Object.assign(this.data[this.editedIndex], this.editedItem)
-
-        // this.sucess.push('Question successfully saved');
-
-        this.$router.go()
+        this.snackbar = true
+        this.scolor = 'success'
+        this.stext = this.$t('success.question_edit')
+        this.$store.dispatch('admin/loadQuestions', { slug: this.$route.params.slug })
         this.dialog = false
       } catch (error) {
         this.msg = error.response.data.msg
@@ -438,9 +458,10 @@ export default {
         const response = await AuthService.deleteQuestion(slug, this.$auth.getToken('local'))
         this.msg = response.msg
         this.data = response.data
-        console.log(response.data)
-        // this.sucess.push('Question successfully saved');
-        this.$router.go()
+        this.snackbar = true
+        this.scolor = 'success'
+        this.stext = this.$t('success.question_delete')
+        this.$store.dispatch('admin/loadQuestions', { slug: this.$route.params.slug })
       } catch (error) {
         this.msg = error.response.data.msg
         console.log(error.response.data.msg)
@@ -507,16 +528,14 @@ export default {
       e.preventDefault()
     },
     editItem (item) {
-      this.editedIndex = this.data.indexOf(item)
+      this.editedIndex = this.questions.indexOf(item)
       this.editedItem = Object.assign({}, item)
       this.dialog = true
     },
 
     deleteItem (item) {
-      const index = this.data.indexOf(item)
-      confirm('Are you sure you want to delete this item?') &&
+      confirm(this.$t('btn.sure_delete') + ' ' + item.title + '!') &&
         this.deleteQuestion(item.slug)
-      this.data.splice(index, 1)
     },
 
     close () {

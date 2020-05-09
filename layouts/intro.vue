@@ -112,6 +112,7 @@
                   }}</label>
                   <input
                     id="exampleInputEmail1"
+                    v-model="email"
                     type="email"
                     class="form-control"
                     :placeholder="$t('intro.emailaddess')"
@@ -123,6 +124,7 @@
                   }}</label>
                   <input
                     id="exampleInputPassword1"
+                    v-model="password"
                     type="password"
                     class="form-control"
                     :placeholder="$t('intro.enterpassword')"
@@ -137,6 +139,7 @@
 
                 <a
                   class="button btn-block text-center iq-mt-30"
+                  @click.prevent="login"
                 >{{ $t("intro.enter") }}</a>
 
                 <label class="text-center iq-mlr-30 iq-mt-10">
@@ -1023,11 +1026,51 @@
 export default {
   data () {
     return {
-      isLogin: true
+      isLogin: true,
+      email: '',
+      password: ''
 
     }
   },
   methods: {
+    async login () {
+      try {
+        await this.$auth.loginWith('student', {
+          data: {
+            email: this.email,
+            password: this.password
+          }
+        }).catch((e) => {
+          console.log(e.message)
+          this.snackbar = true
+          this.scolor = 'error'
+          this.stext = 'Please enter correct username and password'
+        })
+        // if (this.redirectable) {
+        this.$router.push('/st')
+        //   return
+        // }
+        //
+        // this.redirect()
+        // const response = await AuthService.login(credentials)
+        // this.msg = response.msg
+        // const token = response.token
+        // const user = response.user
+        // this.$store.dispatch('login', { token, user });
+        if (this.$auth.loggedIn) {
+          console.log('Successfully Logged In')
+          // this.$route.push(localePath('/'))
+          this.snackbar = true
+          this.scolor = 'success'
+          this.stext = 'Successfully Logged In'
+        }
+      } catch (e) {
+        this.snackbar = true
+        this.scolor = 'error'
+        this.stext = 'Something went wrong'
+      }
+    },
+
     toRegister () {
       this.isLogin = false
     },
@@ -1039,12 +1082,14 @@ export default {
       window.history.replaceState('', '', this.switchLocalePath(''))
       // this.$store.dispatch("setLangEn", "en");
       // this.$store.dispatch("setDirEn", "ltr");
+      this.$router.go()
     },
     changeToAr () {
       this.$i18n.locale = 'ar'
       window.history.replaceState('', '', this.switchLocalePath('ar'))
       // this.$store.dispatch("setLangAr", "ar");
       // this.$store.dispatch("setDirAr", "rtl");
+      this.$router.go()
     }
   },
   head () {
